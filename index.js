@@ -10,7 +10,20 @@ app.get('/oi', (req, res) => {
   res.send('Olá, mundo!')
 })
 
-const lista = ['Rick Sanchez', 'Morty Smith', 'Beth Smith']
+const lista = [
+  {
+    nome: 'Rick Sanchez',
+    imagem: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
+  },
+  {
+    nome: 'Morty Smith',
+    imagem: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg'
+  },
+  {
+    nome: 'Summer Smith',
+    imagem: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg'
+  }
+]
 
 app.get('/personagens', (req, res) => {
   res.send(lista)
@@ -28,7 +41,10 @@ app.get('/personagens/:id', (req, res) => {
 app.use(express.json())
 
 app.post('/personagens', (req, res) => {
-  const novoPersonagem = req.body.nome
+  const novoPersonagem = {
+    nome: req.body.nome,
+    imagem: req.body.imagem
+  }
 
   lista.push(novoPersonagem)
 
@@ -38,8 +54,12 @@ app.post('/personagens', (req, res) => {
 app.put('/personagens/:id', (req, res) => {
   const id = req.params.id
   const nomeAtualizado = req.body.nome
+  const imagemAtualizada = req.body.imagem
 
-  lista[id - 1] = nomeAtualizado
+  lista[id - 1] = {
+    nome: nomeAtualizado,
+    imagem: imagemAtualizada
+  }
 
   res.send("Personagem atualizado com sucesso!")
 })

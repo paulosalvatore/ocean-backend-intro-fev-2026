@@ -2,5 +2,6 @@ POST http://localhost:3000/personagens
 Content-Type: application/json
 
 {
-    "nome": "Summer Smith"
+    "nome": "Beth Smith",
+    "imagem": "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
 }

@@ -1,6 +1,7 @@
-PUT http://localhost:3000/personagens/1
+PUT http://localhost:3000/personagens/4
 Content-Type: application/json
 
 {
-    "nome": "Summer Smith"
+    "nome": "Beth Smith Editada",
+    "imagem": "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
 }
