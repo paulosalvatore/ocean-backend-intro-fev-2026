@@ -24,6 +24,17 @@ app.get('/personagens/:id', (req, res) => {
   res.send(personagem)
 })
 
+// Informo ao Express que o Body da Requisição está em JSON
+app.use(express.json())
+
+app.post('/personagens', (req, res) => {
+  const novoPersonagem = req.body.nome
+
+  lista.push(novoPersonagem)
+
+  res.send("Novo personagem adicionado com sucesso!")
+})
+
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000')
 })
