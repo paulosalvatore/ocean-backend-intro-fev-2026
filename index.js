@@ -44,6 +44,14 @@ app.put('/personagens/:id', (req, res) => {
   res.send("Personagem atualizado com sucesso!")
 })
 
+app.delete('/personagens/:id', (req, res) => {
+  const id = req.params.id
+
+  lista.splice(id - 1, 1)
+
+  res.send("Personagem removido com sucesso!")
+})
+
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000')
 })
